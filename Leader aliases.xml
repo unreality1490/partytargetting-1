@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.001">
+	<TriggerPackage />
+	<TimerPackage />
+	<AliasPackage>
+		<AliasGroup isActive="yes" isFolder="yes">
+			<name>(Leader) Ashtan Party Targetting</name>
+			<script></script>
+			<command></command>
+			<packageName></packageName>
+			<regex></regex>
+			<Alias isActive="yes" isFolder="no">
+				<name>^acm$ assume command</name>
+				<script>send("pt I am calling targets for the party.")</script>
+				<command></command>
+				<packageName></packageName>
+				<regex>^acm$</regex>
+			</Alias>
+			<Alias isActive="yes" isFolder="no">
+				<name>^gcm w$  give command</name>
+				<script>send("pt "..matches[2].." is calling targets for the party.")
+partytargetcaller = matches[2]</script>
+				<command></command>
+				<packageName></packageName>
+				<regex>^gcm (\w+)$</regex>
+			</Alias>
+			<Alias isActive="yes" isFolder="no">
+				<name>(?:ptar|ptarget|partytarget) toggle</name>
+				<script>if partytargetting then
+  partytargetting = false
+  cecho("\n&lt;white:DarkViolet&gt;Party targetting &lt;red:DarkViolet&gt;disabled!!! &lt;white:DarkViolet&gt;Party targetting &lt;red:DarkViolet&gt;disabled!!! &lt;white:DarkViolet&gt;Party targetting &lt;red:DarkViolet&gt;disabled!!!")
+else
+  partytargetting = true
+  send("pt I am now following the targets of "..partytargetcaller)
+  cecho("\n&lt;white:DarkViolet&gt;Party targetting &lt;green:DarkViolet&gt;enabled! &lt;white:DarkViolet&gt;Following party target caller! Party targetting &lt;green:DarkViolet&gt;enabled!")
+end</script>
+				<command></command>
+				<packageName></packageName>
+				<regex>^(?:ptar|ptarget|partytarget)$</regex>
+			</Alias>
+			<Alias isActive="yes" isFolder="no">
+				<name>^ttn$</name>
+				<script>WhoHereTable = WhoHereTable or {}
+for k,v in pairs(gmcp.Room.Players) do
+	if gmcp.Room.Players[k].name ~= gmcp.Char.Status.name then
+    table.insert(WhoHereTable, gmcp.Room.Players[k].name)
+  end
+end
+
+local newtarget for i, targetnext in ipairs(partyenemies) do
+  if table.contains(WhoHereTable, targetnext) then
+    target = newtarget
+    send("pt Target "..target)
+  end
+end</script>
+				<command></command>
+				<packageName></packageName>
+				<regex>^ttn$</regex>
+			</Alias>
+		</AliasGroup>
+	</AliasPackage>
+	<ActionPackage />
+	<ScriptPackage />
+	<KeyPackage />
+	<HelpPackage>
+		<helpURL></helpURL>
+	</HelpPackage>
+</MudletPackage>
