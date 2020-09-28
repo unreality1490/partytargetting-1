@@ -21,7 +21,7 @@
 				<name>Assuming command</name>
 				<script>approvedleaders = {"Trendric", "Fen", "Parthenope", "Llohr", "Penwize", "Davok"}
 if table.contains(approvedleaders,matches[2]) then
-  matches[2] = partytargetcaller
+  partytargetcaller = matches[2]
 end
 partytargetting = true
 cecho("\n&lt;White:DarkViolet&gt;I'm following the targets of "..partytargetcaller)
@@ -39,7 +39,7 @@ send("pt I'm following the targets of "..partytargetcaller)
 				<colorTriggerFgColor>#000000</colorTriggerFgColor>
 				<colorTriggerBgColor>#000000</colorTriggerBgColor>
 				<regexCodeList>
-					<string>^\(Party\): (\S+) says, "I am calling targets for the party."$</string>
+					<string>^\(Party\): (\S+) says, "I am calling targets for the party\."$</string>
 				</regexCodeList>
 				<regexCodePropertyList>
 					<integer>1</integer>
@@ -50,9 +50,8 @@ send("pt I'm following the targets of "..partytargetcaller)
 				<script>partytargetting = true
 --if table.contains(approvedleaders, matches[3]) then partytargetcaller = matches[3] end
 
-local newcaller
 for i, caller in ipairs(approvedleaders) do 
-  if string.find(caller, matches[2]) then newcaller = partytargetcaller break end 
+  if string.find(caller, matches[3]) then partytargetcaller = caller break end 
 end
 
 if gmcp.Char.Name.name == partytargetcaller then
@@ -125,7 +124,7 @@ end
 				<colorTriggerFgColor>#000000</colorTriggerFgColor>
 				<colorTriggerBgColor>#000000</colorTriggerBgColor>
 				<regexCodeList>
-					<string>^\(Party\): (\S+) says, "Target (\w+)\."$</string>
+					<string>^\(Party\): (\S+) says, "Target:? (\w+)\."$</string>
 				</regexCodeList>
 				<regexCodePropertyList>
 					<integer>1</integer>
