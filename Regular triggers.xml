@@ -3,7 +3,7 @@
 <MudletPackage version="1.001">
 	<TriggerPackage>
 		<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-			<name>(Leader) Ashtan Party Targetting</name>
+			<name>Ashtan Party Targetting</name>
 			<script></script>
 			<triggerType>0</triggerType>
 			<conditonLineDelta>0</conditonLineDelta>
@@ -23,10 +23,8 @@
   partytargetcaller = matches[2]
 end
 partytargetting = true
-cecho("\n&lt;White:DarkViolet&gt;Following the targets of "..partytargetcaller)
-send("pt I'm following the targets of "..partytargetcaller)
-
-</script>
+cecho("\n&lt;white:DarkViolet&gt;Party targetting &lt;green:DarkViolet&gt;enabled! &lt;white:DarkViolet&gt;Following party target caller! Party targetting &lt;green:DarkViolet&gt;enabled!")
+send("pt I am now following the targets of "..partytargetcaller)</script>
 				<triggerType>0</triggerType>
 				<conditonLineDelta>0</conditonLineDelta>
 				<mStayOpen>0</mStayOpen>
@@ -52,8 +50,8 @@ if gmcp.Char.Name.name == matches[3] then
   cecho("\n\n&lt;White:DarkViolet&gt;You are now calling targets! You are now calling targets! You are now calling targets!")
 else
   partytargetcaller = matches[3]
-  cecho("\n&lt;White:DarkViolet&gt;I'm following the targets of "..partytargetcaller)
-  send("pt I'm following the targets of "..partytargetcaller)
+  cecho("\n&lt;white:DarkViolet&gt;Party targetting &lt;green:DarkViolet&gt;enabled! &lt;white:DarkViolet&gt;Following party target caller! Party targetting &lt;green:DarkViolet&gt;enabled!")
+  send("pt I am now following the targets of "..partytargetcaller)
 end</script>
 				<triggerType>0</triggerType>
 				<conditonLineDelta>0</conditonLineDelta>
@@ -93,80 +91,6 @@ end</script>
 					<string>^\(Party\): (\S+) says, "Target (\w+)\."$</string>
 				</regexCodeList>
 				<regexCodePropertyList>
-					<integer>1</integer>
-				</regexCodePropertyList>
-			</Trigger>
-			<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-				<name>Add enemy</name>
-				<script>partyenemies = partyenemies or {}
-if table.contains(approvedleaders, matches[2]) and not table.contains(partyenemies, matches[3]) then
-  table.insert(partyenemies, matches[2])
-	send("enemy "..matches[3],false)
-end</script>
-				<triggerType>0</triggerType>
-				<conditonLineDelta>0</conditonLineDelta>
-				<mStayOpen>0</mStayOpen>
-				<mCommand></mCommand>
-				<packageName></packageName>
-				<mFgColor>#ff0000</mFgColor>
-				<mBgColor>#ffff00</mBgColor>
-				<mSoundFile></mSoundFile>
-				<colorTriggerFgColor>#000000</colorTriggerFgColor>
-				<colorTriggerBgColor>#000000</colorTriggerBgColor>
-				<regexCodeList>
-					<string>^\(Party\): (\w+) says, "Add (\w+)\."$</string>
-				</regexCodeList>
-				<regexCodePropertyList>
-					<integer>1</integer>
-				</regexCodePropertyList>
-			</Trigger>
-			<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-				<name>Target Priority</name>
-				<script>if table.contains(approvedleaders,matches[2]) then
-  partyenemies = multimatches[2][3]:split(" ")
-end
-
-</script>
-				<triggerType>0</triggerType>
-				<conditonLineDelta>0</conditonLineDelta>
-				<mStayOpen>0</mStayOpen>
-				<mCommand></mCommand>
-				<packageName></packageName>
-				<mFgColor>#ff0000</mFgColor>
-				<mBgColor>#ffff00</mBgColor>
-				<mSoundFile></mSoundFile>
-				<colorTriggerFgColor>#000000</colorTriggerFgColor>
-				<colorTriggerBgColor>#000000</colorTriggerBgColor>
-				<regexCodeList>
-					<string>(Party):</string>
-					<string>(\S+) says, "Target Priority: (.+)\.$"</string>
-				</regexCodeList>
-				<regexCodePropertyList>
-					<integer>2</integer>
-					<integer>1</integer>
-				</regexCodePropertyList>
-			</Trigger>
-			<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-				<name>Target Priority (self)</name>
-				<script>partyenemies = multimatches[2][2]:split(" ")
-
-</script>
-				<triggerType>0</triggerType>
-				<conditonLineDelta>0</conditonLineDelta>
-				<mStayOpen>0</mStayOpen>
-				<mCommand></mCommand>
-				<packageName></packageName>
-				<mFgColor>#ff0000</mFgColor>
-				<mBgColor>#ffff00</mBgColor>
-				<mSoundFile></mSoundFile>
-				<colorTriggerFgColor>#000000</colorTriggerFgColor>
-				<colorTriggerBgColor>#000000</colorTriggerBgColor>
-				<regexCodeList>
-					<string>(Party):</string>
-					<string>You say, "Target Priority: (.+)\.$"</string>
-				</regexCodeList>
-				<regexCodePropertyList>
-					<integer>2</integer>
 					<integer>1</integer>
 				</regexCodePropertyList>
 			</Trigger>

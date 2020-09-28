@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.001">
+	<ScriptPackage>
+		<ScriptGroup isActive="yes" isFolder="yes">
+			<name>Ashtan Party Targetting</name>
+			<packageName></packageName>
+			<script></script>
+			<eventHandlerList />
+			<Script isActive="yes" isFolder="no">
+				<name>Ashtan Party Targetting</name>
+				<packageName></packageName>
+				<script>approvedleaders = {"Trendric", "Fen", "Parthenope", "Llohr", "Penwize", "Davok"}
+partytargetcaller = partytargetcaller or "Fen"
+partytargetting = partytargetting or true
+
+function new_target(t)
+	for i, targetnext in ipairs(partyenemies) do
+  	if table.contains(WhoHereTable, t) then
+    	return targetnext
+    end
+  end
+end
+
+function completeName(partial)
+	for i, name in ipairs(approvedleaders) do
+  	if string.find(name:lower(), partial:lower()) then
+    	return name
+    end
+	end
+end</script>
+				<eventHandlerList />
+			</Script>
+			<Script isActive="yes" isFolder="no">
+				<name>party_target_example</name>
+				<packageName></packageName>
+				<script>function party_target_example(e, caller, victim) 
+  if caller == partytargetcaller then 
+    target = victim
+    --this uses the alias "target" as a targetting alias. If you use something different, substitute it here.
+    if ak then ak.scoreup() end
+  end
+end</script>
+				<eventHandlerList>
+					<string>party targetting</string>
+				</eventHandlerList>
+			</Script>
+		</ScriptGroup>
+	</ScriptPackage>
+</MudletPackage>

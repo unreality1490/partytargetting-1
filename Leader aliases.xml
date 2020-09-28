@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE MudletPackage>
 <MudletPackage version="1.001">
-	<TriggerPackage />
-	<TimerPackage />
 	<AliasPackage>
 		<AliasGroup isActive="yes" isFolder="yes">
 			<name>(Leader) Ashtan Party Targetting</name>
@@ -19,8 +17,8 @@
 			</Alias>
 			<Alias isActive="yes" isFolder="no">
 				<name>^gcm w$  give command</name>
-				<script>send("pt "..matches[2].." is calling targets for the party.")
-partytargetcaller = matches[2]</script>
+				<script>partytargetcaller = completeName(matches[2])
+send("pt "..partytargetcaller.." is calling targets for the party.")</script>
 				<command></command>
 				<packageName></packageName>
 				<regex>^gcm (\w+)$</regex>
@@ -48,22 +46,11 @@ for k,v in pairs(gmcp.Room.Players) do
   end
 end
 
-local newtarget for i, targetnext in ipairs(partyenemies) do
-  if table.contains(WhoHereTable, targetnext) then
-    target = newtarget
-    send("pt Target "..target)
-  end
-end</script>
+target=new_target(partyenemies)</script>
 				<command></command>
 				<packageName></packageName>
 				<regex>^ttn$</regex>
 			</Alias>
 		</AliasGroup>
 	</AliasPackage>
-	<ActionPackage />
-	<ScriptPackage />
-	<KeyPackage />
-	<HelpPackage>
-		<helpURL></helpURL>
-	</HelpPackage>
 </MudletPackage>

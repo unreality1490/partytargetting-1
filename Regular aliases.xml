@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.001">
+	<AliasPackage>
+		<AliasGroup isActive="yes" isFolder="yes">
+			<name>Regular aliases</name>
+			<script></script>
+			<command></command>
+			<packageName>Regular aliases</packageName>
+			<regex></regex>
+			<AliasGroup isActive="yes" isFolder="yes">
+				<name>Ashtan Party Targetting</name>
+				<script></script>
+				<command></command>
+				<packageName></packageName>
+				<regex></regex>
+				<Alias isActive="yes" isFolder="no">
+					<name>(?:ptar|ptarget|partytarget) toggle</name>
+					<script>if partytargetting then
+  partytargetting = false
+  cecho("\n&lt;white:DarkViolet&gt;Party targetting &lt;red:DarkViolet&gt;disabled!!! &lt;white:DarkViolet&gt;Party targetting &lt;red:DarkViolet&gt;disabled!!! &lt;white:DarkViolet&gt;Party targetting &lt;red:DarkViolet&gt;disabled!!!")
+else
+  partytargetting = true
+  send("pt I am now following the targets of "..partytargetcaller)
+  cecho("\n&lt;white:DarkViolet&gt;Party targetting &lt;green:DarkViolet&gt;enabled! &lt;white:DarkViolet&gt;Following party target caller! Party targetting &lt;green:DarkViolet&gt;enabled!")
+end</script>
+					<command></command>
+					<packageName></packageName>
+					<regex>^(?:ptar|ptarget|partytarget)$</regex>
+				</Alias>
+			</AliasGroup>
+		</AliasGroup>
+	</AliasPackage>
+</MudletPackage>
