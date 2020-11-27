@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.001">
+	<TriggerPackage>
+		<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+			<name>Ashtan Party Targetting (Leader)</name>
+			<script></script>
+			<triggerType>0</triggerType>
+			<conditonLineDelta>0</conditonLineDelta>
+			<mStayOpen>0</mStayOpen>
+			<mCommand></mCommand>
+			<packageName>Ashtan Party Targetting (Leader)</packageName>
+			<mFgColor>#ff0000</mFgColor>
+			<mBgColor>#ffff00</mBgColor>
+			<mSoundFile></mSoundFile>
+			<colorTriggerFgColor>#000000</colorTriggerFgColor>
+			<colorTriggerBgColor>#000000</colorTriggerBgColor>
+			<regexCodeList />
+			<regexCodePropertyList />
+			<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+				<name>Leader triggers</name>
+				<script></script>
+				<triggerType>0</triggerType>
+				<conditonLineDelta>0</conditonLineDelta>
+				<mStayOpen>0</mStayOpen>
+				<mCommand></mCommand>
+				<packageName>Leader triggers</packageName>
+				<mFgColor>#ff0000</mFgColor>
+				<mBgColor>#ffff00</mBgColor>
+				<mSoundFile></mSoundFile>
+				<colorTriggerFgColor>#000000</colorTriggerFgColor>
+				<colorTriggerBgColor>#000000</colorTriggerBgColor>
+				<regexCodeList />
+				<regexCodePropertyList />
+				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>(Leader) Ashtan Party Targetting</name>
+					<script></script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList />
+					<regexCodePropertyList />
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Assuming command</name>
+						<script>if table.contains(approvedleaders,matches[2]) then
+  partytargetcaller = matches[2]
+end
+partytargetting = true
+cecho("\n&lt;White:DarkViolet&gt;Following the targets of "..partytargetcaller)
+send("pt I'm following the targets of "..partytargetcaller)
+
+</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^\(Party\): (\S+) says, "I am calling targets for the party."$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Giving command</name>
+						<script>partytargetting = true
+if gmcp.Char.Name.name == matches[3] then
+  cecho("\n&lt;White:DarkViolet&gt;You are now calling targets! You are now calling targets! You are now calling targets!")
+  cecho("\n\n&lt;White:DarkViolet&gt;You are now calling targets! You are now calling targets! You are now calling targets!")
+else
+  partytargetcaller = matches[3]
+  cecho("\n&lt;White:DarkViolet&gt;I'm following the targets of "..partytargetcaller)
+  send("pt I'm following the targets of "..partytargetcaller)
+end</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^\(Party\): (\w+) says, "(\S+) is calling targets for the party."$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Follow target</name>
+						<script>if partytargetting then
+  if matches[2]==partytargetcaller then
+    raiseEvent("party targetting", matches[2], matches[3])
+    if ak then ak.scoreup() end
+  end
+end</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^\(Party\): (\S+) says, "Target (\w+)\."$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Add enemy</name>
+						<script>partyenemies = partyenemies or {}
+if table.contains(approvedleaders, matches[2]) and not table.contains(partyenemies, matches[3]) then
+  table.insert(partyenemies, matches[2])
+	send("enemy "..matches[3],false)
+end</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^\(Party\): (\w+) says, "Add (\w+)\."$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Target Priority</name>
+						<script>if table.contains(approvedleaders,matches[2]) then
+  partyenemies = multimatches[2][3]:split(" ")
+end
+
+</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>(Party):</string>
+							<string>(\S+) says, "Target priority: (.+)\.$"</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>2</integer>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Target Priority (self)</name>
+						<script>partyenemies = multimatches[2][2]:split(" ")
+
+</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>(Party):</string>
+							<string>You say, "Target priority: (.+)\."$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>2</integer>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+				</TriggerGroup>
+			</TriggerGroup>
+		</TriggerGroup>
+	</TriggerPackage>
+	<TimerPackage />
+	<AliasPackage>
+		<AliasGroup isActive="yes" isFolder="yes">
+			<name>Ashtan Party Targetting (Leader)</name>
+			<script></script>
+			<command></command>
+			<packageName>Ashtan Party Targetting (Leader)</packageName>
+			<regex></regex>
+			<AliasGroup isActive="yes" isFolder="yes">
+				<name>Leader aliases</name>
+				<script></script>
+				<command></command>
+				<packageName>Leader aliases</packageName>
+				<regex></regex>
+				<AliasGroup isActive="yes" isFolder="yes">
+					<name>(Leader) Ashtan Party Targetting</name>
+					<script></script>
+					<command></command>
+					<packageName></packageName>
+					<regex></regex>
+					<Alias isActive="yes" isFolder="no">
+						<name>^acm$ assume command</name>
+						<script>send("pt I am calling targets for the party.")</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^acm$</regex>
+					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^gcm w$  give command</name>
+						<script>partytargetcaller = completeName(matches[2])
+send("pt "..partytargetcaller.." is calling targets for the party.")</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^gcm (\w+)$</regex>
+					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>(?:ptar|ptarget|partytarget) toggle</name>
+						<script>if partytargetting then
+  partytargetting = false
+  cecho("\n&lt;white:DarkViolet&gt;Party targetting &lt;red:DarkViolet&gt;disabled!!! &lt;white:DarkViolet&gt;Party targetting &lt;red:DarkViolet&gt;disabled!!! &lt;white:DarkViolet&gt;Party targetting &lt;red:DarkViolet&gt;disabled!!!")
+else
+  partytargetting = true
+  send("pt I am now following the targets of "..partytargetcaller)
+  cecho("\n&lt;white:DarkViolet&gt;Party targetting &lt;green:DarkViolet&gt;enabled! &lt;white:DarkViolet&gt;Following party target caller! Party targetting &lt;green:DarkViolet&gt;enabled!")
+end</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^(?:ptar|ptarget|partytarget)$</regex>
+					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^ttn$</name>
+						<script>WhoHereTable = WhoHereTable or {}
+for k,v in pairs(gmcp.Room.Players) do
+	if gmcp.Room.Players[k].name ~= gmcp.Char.Status.name then
+    if string.find(gmcp.Room.Players[k].fullname, "The soul of") then
+    else
+      table.insert(WhoHereTable, gmcp.Room.Players[k].name)
+    end
+  end
+end
+
+for k,v in ipairs(WhoHereTable) do
+  if table.contains(partyenemies, v) then
+    raiseEvent("party targetting", gmcp.Char.Status.name, v) break
+  end
+end
+
+--target=new_target()
+--cecho("&lt;red&gt;\nTargetting "..target)
+--send("pt Target "..target)
+if ak then ak.scoreup() end</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^ttn$</regex>
+					</Alias>
+				</AliasGroup>
+			</AliasGroup>
+		</AliasGroup>
+	</AliasPackage>
+	<ActionPackage />
+	<ScriptPackage>
+		<ScriptGroup isActive="yes" isFolder="yes">
+			<name>Ashtan Party Targetting (Leader)</name>
+			<packageName>Ashtan Party Targetting (Leader)</packageName>
+			<script></script>
+			<eventHandlerList />
+			<ScriptGroup isActive="yes" isFolder="yes">
+				<name>Leader scripts</name>
+				<packageName>Leader scripts</packageName>
+				<script></script>
+				<eventHandlerList />
+				<ScriptGroup isActive="yes" isFolder="yes">
+					<name>Ashtan Party Targetting</name>
+					<packageName></packageName>
+					<script></script>
+					<eventHandlerList />
+					<Script isActive="yes" isFolder="no">
+						<name>Ashtan Party Targetting</name>
+						<packageName></packageName>
+						<script>approvedleaders = {"Trendric", "Fen", "Parthenope", "Llohr", "Penwize", "Davok", "Zulah", "Katalyst", "Austere",}
+partyenemies = {"Astarod",}
+partytargetcaller = partytargetcaller or "Fen"
+partytargetting = partytargetting or true
+
+function new_target(t)
+	for i, targetnext in ipairs(partyenemies) do
+  	if table.contains(WhoHereTable, t) then
+    	return targetnext
+    end
+  end
+end
+
+function completeName(partial)
+	for i, name in ipairs(approvedleaders) do
+  	if string.find(name:lower(), partial:lower()) then
+    	return name
+    end
+	end
+end</script>
+						<eventHandlerList />
+					</Script>
+					<Script isActive="yes" isFolder="no">
+						<name>party_target_example</name>
+						<packageName></packageName>
+						<script>function party_target_example(e, caller, victim) 
+  if caller == partytargetcaller then 
+    target = victim
+    cecho("&lt;red&gt;\nTargetting "..victim)
+    --this uses the variable "target" as a targetting variable. If you use something different, substitute it here.
+    if ak then ak.softreset() ak.scoreup() end
+  end
+end</script>
+						<eventHandlerList>
+							<string>party targetting</string>
+						</eventHandlerList>
+					</Script>
+				</ScriptGroup>
+			</ScriptGroup>
+		</ScriptGroup>
+	</ScriptPackage>
+	<KeyPackage />
+	<VariablePackage>
+		<HiddenVariables />
+	</VariablePackage>
+</MudletPackage>
